@@ -1,15 +1,15 @@
 #!/usr/bin/env node
 
-var fs = require('fs')
-var mkdirp = require('mkdirp')
-var path = require('path')
-var program = require('commander')
-var readline = require('readline')
+const fs = require('fs')
+const mkdirp = require('mkdirp')
+const path = require('path')
+const program = require('commander')
+const readline = require('readline')
 
-var MODE_0666 = parseInt('0666', 8)
-var MODE_0755 = parseInt('0755', 8)
+const MODE_0666 = parseInt('0666', 8)
+const MODE_0755 = parseInt('0755', 8)
 
-var _exit = process.exit
+const _exit = process.exit
 
 // Re-assign process.exit because of commander
 // TODO: Switch to a different command framework
