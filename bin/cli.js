@@ -5,6 +5,7 @@ const mkdirp = require('mkdirp')
 const path = require('path')
 const program = require('commander')
 const readline = require('readline')
+const pkg = require('../package.json')
 
 const MODE_0666 = parseInt('0666', 8)
 const MODE_0755 = parseInt('0755', 8)
@@ -39,6 +40,7 @@ before(program, 'unknownOption', function () {
 })
 
 program
+  .version(pkg.version, '--version')
   .parse(process.argv)
 
 if (!exit.exited) {
@@ -104,26 +106,9 @@ function copyTemplate (from, to) {
  */
 
 function createApplication (name, path) {
-  var wait = 5
-
   console.log()
   function complete () {
-    if (--wait) return
-    var prompt = launchedFromCmd() ? '>' : '$'
-
-    console.log()
-    console.log('   install dependencies:')
-    console.log('     %s cd %s && npm install', prompt, path)
-    console.log()
-    console.log('   run the app:')
-
-    if (launchedFromCmd()) {
-      console.log('     %s SET DEBUG=%s:* & npm start', prompt, name)
-    } else {
-      console.log('     %s DEBUG=%s:* npm start', prompt, name)
-    }
-
-    console.log()
+    // todo
   }
 
   mkdir(path, function () {
