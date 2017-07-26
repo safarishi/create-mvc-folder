@@ -1,7 +1,7 @@
 import initialState from './initial-state'
 import * as actions from './actions'
 
-export {
+export default {
   initialState,
   actions,
 }
